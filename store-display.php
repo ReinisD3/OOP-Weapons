@@ -2,7 +2,7 @@
 
 class StoreDisplay extends Store
 {
-    public function open()
+    public function open() :void
     {
         echo '--------------------------Welcome to gun Store---------------------------' . PHP_EOL;
         $this->showGuns();

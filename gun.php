@@ -26,7 +26,7 @@ class Gun
         return $this->bulletType;
     }
 
-    public function sound()
+    public function sound() :string
     {
         return 'pif paf ';
     }
