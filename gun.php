@@ -24,6 +24,6 @@ class Gun
     }
     public function sound()
     {
-        return 'bum bum';
+        return 'pif paf ';
     }
 }

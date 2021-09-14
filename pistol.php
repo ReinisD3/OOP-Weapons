@@ -18,8 +18,4 @@ class Pistol extends Gun
     {
        return $this->bulletType*100;
     }
-    public function sound() : string
-    {
-        return 'pif paf ';
-    }
 }
