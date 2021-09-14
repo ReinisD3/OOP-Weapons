@@ -10,7 +10,7 @@ require_once 'store-display.php';
 $gunStore = new StoreDisplay([
     new Pistol('Eagle'),
     new MachineGun('AK47'),
-    new Pistol('Glock'),
+    new Pistol('Glock',4),
     new Explosive('Grenade')
 ]);
 $gunStore->open();

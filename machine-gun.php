@@ -2,12 +2,9 @@
 
 class MachineGun extends Gun
 {
-    protected int $bulletType;
-
     public function __construct(string $name, int $bulletType = 50)
     {
-        $this->bulletType = $bulletType;
-        parent::__construct($name);
+        parent::__construct($name,$bulletType);
     }
     public function getLicense(): string
     {

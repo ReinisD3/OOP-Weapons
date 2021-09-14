@@ -4,12 +4,10 @@ use JetBrains\PhpStorm\Pure;
 
 class Pistol extends Gun
 {
-    protected int $bulletType ;
 
     public function __construct(string $name, int $bulletType = 2)
     {
-        $this->bulletType = $bulletType;
-        parent::__construct($name);
+        parent::__construct($name,$bulletType);
     }
 
     public function getLicense(): string

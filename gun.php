@@ -3,11 +3,12 @@
 class Gun
 {
     protected string $name;
-    protected int $bulletType = 10; //standart bullet
+    protected int $bulletType;
 
-    public function __construct(string $name)
+    public function __construct(string $name, int $bulletType = 2)
     {
         $this->name = $name;
+        $this->bulletType = $bulletType;
     }
     public function getName(): string
     {

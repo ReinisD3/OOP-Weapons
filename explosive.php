@@ -2,12 +2,10 @@
 
 class Explosive extends Gun
 {
-    protected int $bulletType;
 
     public function __construct(string $name, int $bulletType = 999)
     {
-        $this->bulletType = $bulletType;
-        parent::__construct($name);
+        parent::__construct($name,$bulletType);
     }
 
     public function getLicense(): string
