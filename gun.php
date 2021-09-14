@@ -3,7 +3,7 @@
 class Gun
 {
     protected string $name;
-    protected int $bullet = 10; //standart bullet
+    protected int $bulletType = 10; //standart bullet
 
     public function __construct(string $name)
     {
@@ -19,7 +19,7 @@ class Gun
     }
     public function bulletTrajectory():int
     {
-        return $this->bullet;
+        return $this->bulletType;
     }
     public function sound()
     {

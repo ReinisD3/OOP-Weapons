@@ -13,4 +13,4 @@ $gunStore = new StoreDisplay([
     new Pistol('Glock'),
     new Explosive('Grenade')
 ]);
-$gunStore->showGuns();
+$gunStore->open();
