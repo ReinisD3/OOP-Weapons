@@ -41,8 +41,6 @@ class StoreDisplay
         }
         echo 'No such gun in store' . PHP_EOL;
         return null;
-
-
     }
 
     private function showPaymentMethods(): void
@@ -51,8 +49,7 @@ class StoreDisplay
             echo 'Enter ' . $key . ' to pay with ' . $payMethod . PHP_EOL;
         }
     }
-
-    private function choosePaymentMethod()
+    private function choosePaymentMethod(): ?PaymentMethod
     {
         $methodChosen = readline('>');
         $methodChosen = (int)$methodChosen;

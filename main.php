@@ -6,8 +6,10 @@ require_once 'machine-gun.php';
 require_once 'explosive.php';
 require_once 'store.php';
 require_once 'store-display.php';
+require_once 'PaymentMethod.php';
 require_once 'Paypal.php';
 require_once 'CreditCard.php';
+
 
 $store = new Store([
     new Pistol('Eagle'),

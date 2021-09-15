@@ -7,7 +7,7 @@
 
 class Store
 {
-    protected array $storedGuns = [];
+    private array $storedGuns = [];
 
     public function __construct(array $gunsToStore)
     {

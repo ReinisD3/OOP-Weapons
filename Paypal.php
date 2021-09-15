@@ -1,6 +1,6 @@
 <?php
 
-class Paypal
+class Paypal extends PaymentMethod
 {
     private string $address;
     private string $password;
