@@ -57,9 +57,9 @@ class StoreDisplay
         $methodChosen = readline('>');
         $methodChosen = (int)$methodChosen;
         if (isset($this->payMethods[$methodChosen])) {
-           return $this->payMethods[$methodChosen];
+            return $this->payMethods[$methodChosen];
         }
-        'Wrong pay method input' . PHP_EOL;
+        echo 'Wrong pay method input' . PHP_EOL;
         return null;
 
     }
