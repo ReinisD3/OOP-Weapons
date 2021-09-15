@@ -21,5 +21,11 @@ class Store
         $this->storedGuns[] = $gun;
     }
 
+    public function getStoredGuns(): array
+    {
+        return $this->storedGuns;
+    }
+
+
 }
 
