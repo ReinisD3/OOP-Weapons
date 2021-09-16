@@ -19,28 +19,18 @@ class StoreDisplay
         $this->showPaymentMethods();
         $payMethod = $this->choosePaymentMethod();
         $payMethod->enterCredentials();
+        if ($this->store->makePayment($payMethod)) {
+            var_dump($this->store->giveGun($gunToBuy));
+        };
     }
 
     private function showGuns(): void
     {
         echo '~~~~~~~~~~~ In store available are ===>>> ' . PHP_EOL;
-        foreach ($this->store->getStoredGuns() as $index => $gun) {
+        foreach ($this->store->getStoredGuns() as $index => $storedGun) {
+            $gun = $storedGun->getGun();
             echo '(' . $index . ')' . $gun->getName() . ' | license(' . $gun->getLicense() . ') | Bullet Trajectory : ' . $gun->bulletTrajectory() . ' | Sound : ' . $gun->sound() . PHP_EOL;
         }
-    }
-
-    private function chooseGunToBuy(): ?Gun
-    {
-        $input = readline('Enter gun name to buy it : ');
-        foreach ($this->store->getStoredGuns() as $gun) {
-            if (strtolower($gun->getName()) === strtolower($input)) {
-                echo 'You choose ' . $gun->getName() . ' to buy ' . PHP_EOL;
-                return $gun;
-            }
-
-        }
-        echo 'No such gun in store' . PHP_EOL;
-        return null;
     }
 
     private function showPaymentMethods(): void
@@ -49,6 +39,20 @@ class StoreDisplay
             echo 'Enter ' . $key . ' to pay with ' . $payMethod . PHP_EOL;
         }
     }
+
+    private function chooseGunToBuy(): ?StoredGun
+    {
+        $gunToBuyName = readline('Enter gun name to buy it : ');
+        $gunToBuy = $this->store->checkIfGunIsStored($gunToBuyName);
+        if ($gunToBuy === null) {
+            echo 'No such gun in store' . PHP_EOL;
+            return null;
+        }
+        echo 'You choose ' . $gunToBuy->getGun()->getName() . ' to buy' . PHP_EOL;
+        // could ask quantity amount to buy
+        return $gunToBuy;
+    }
+
     private function choosePaymentMethod(): ?PaymentMethod
     {
         $methodChosen = readline('>');
