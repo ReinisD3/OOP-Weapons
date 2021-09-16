@@ -35,6 +35,7 @@ class Store
 
     public function giveGun(storedGun $storedGun): Gun
     {
+        $storedGun->setQuantity(1);
         return $storedGun->getGun();
     }
 
@@ -46,6 +47,10 @@ class Store
 
         }
         return null;
+    }
+    public function checkQuantity(int $amount,storedGun $storedGun):bool
+    {
+        return $amount <= $storedGun->getQuantity();
     }
 }
 

@@ -50,6 +50,13 @@ class StoreDisplay
         }
         echo 'You choose ' . $gunToBuy->getGun()->getName() . ' to buy' . PHP_EOL;
         // could ask quantity amount to buy
+        $amountToBuy = readline('Enter quantity to buy : ');
+        $amountToBuy = (int) $amountToBuy;
+        if (!$this->store->checkQuantity($amountToBuy,$gunToBuy))
+        {
+            echo 'No such amount in store' . PHP_EOL;
+            return null;
+        }
         return $gunToBuy;
     }
 
