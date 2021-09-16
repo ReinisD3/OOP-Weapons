@@ -1,6 +1,6 @@
 <?php
 
-class CreditCard extends PaymentMethod
+class CreditCard implements PaymentMethod
 {
     private string $nameSurname;
     private string $cardNumber;

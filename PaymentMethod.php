@@ -1,6 +1,6 @@
 <?php
 
-abstract class PaymentMethod
+interface PaymentMethod
 {
-    abstract public function enterCredentials(): void;
+    public function enterCredentials(): void;
 }
