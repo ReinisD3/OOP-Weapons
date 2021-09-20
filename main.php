@@ -1,15 +1,15 @@
 <?php
 
-require_once 'gun.php';
-require_once 'pistol.php';
-require_once 'machine-gun.php';
-require_once 'explosive.php';
-require_once 'stored-gun.php';
-require_once 'store.php';
-require_once 'store-display.php';
-require_once 'PaymentMethod.php';
-require_once 'Paypal.php';
-require_once 'CreditCard.php';
+require_once 'guns/gun.php';
+require_once 'guns/pistol.php';
+require_once 'guns/machine-gun.php';
+require_once 'guns/explosive.php';
+require_once 'Store/stored-gun.php';
+require_once 'Store/store.php';
+require_once 'Store/store-display.php';
+require_once 'payment-methods/PaymentMethod.php';
+require_once 'payment-methods/Paypal.php';
+require_once 'payment-methods/CreditCard.php';
 
 
 
