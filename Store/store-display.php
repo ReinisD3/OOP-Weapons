@@ -14,22 +14,22 @@ class StoreDisplay
     public function open(): void
     {
         echo '--------------------------Welcome to gun Store---------------------------' . PHP_EOL;
-        $this->showGuns();
-        $gunToBuy = $this->chooseGunToBuy();
+        $this->showProducts();
+        $gunToBuy = $this->chooseProductToBuy();
         $this->showPaymentMethods();
         $payMethod = $this->choosePaymentMethod();
         $payMethod->enterCredentials();
         if ($this->store->makePayment($payMethod)) {
-            var_dump($this->store->giveGun($gunToBuy));
+            var_dump($this->store->giveProduct($gunToBuy));
         };
     }
 
-    private function showGuns(): void
+    private function showProducts(): void
     {
         echo '~~~~~~~~~~~ In store available are ===>>> ' . PHP_EOL;
-        foreach ($this->store->getStoredGuns() as $index => $storedGun) {
-            $gun = $storedGun->getGun();
-            echo '(' . $index . ')' . $gun->getName() . ' | license(' . $gun->getLicense() . ') | Bullet Trajectory : ' . $gun->bulletTrajectory() . ' | Sound : ' . $gun->sound() . PHP_EOL;
+        foreach ($this->store->getStoredProducts() as $index => $storedProduct) {
+            $product = $storedProduct->getProduct();
+            echo '(' . $index . ')' . $product->getName() . ' | ' . $storedProduct->getQuantity().' in stock' .PHP_EOL;
         }
     }
 
@@ -40,15 +40,15 @@ class StoreDisplay
         }
     }
 
-    private function chooseGunToBuy(): ?StoredGun
+    private function chooseProductToBuy(): ?StoredProduct
     {
         $gunToBuyName = readline('Enter gun name to buy it : ');
-        $gunToBuy = $this->store->checkIfGunIsStored($gunToBuyName);
+        $gunToBuy = $this->store->checkIfProductIsStored($gunToBuyName);
         if ($gunToBuy === null) {
             echo 'No such gun in store' . PHP_EOL;
             return null;
         }
-        echo 'You choose ' . $gunToBuy->getGun()->getName() . ' to buy' . PHP_EOL;
+        echo 'You choose ' . $gunToBuy->getProduct()->getName() . ' to buy' . PHP_EOL;
         // could ask quantity amount to buy
         $amountToBuy = readline('Enter quantity to buy : ');
         $amountToBuy = (int) $amountToBuy;

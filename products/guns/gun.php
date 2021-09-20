@@ -1,6 +1,6 @@
 <?php
 
-class Gun
+class Gun implements Product
 {
     protected string $name;
     protected int $bulletType;

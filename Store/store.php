@@ -7,23 +7,23 @@
 
 class Store
 {
-    private array $storedGuns = [];
+    private array $storedProducts = [];
 
-    public function __construct(array $gunsToStore)
+    public function __construct(array $productsToStore)
     {
-        foreach ($gunsToStore as $storedGun) {
-            $this->addGun($storedGun);
+        foreach ($productsToStore as $storedProduct) {
+            $this->addProduct($storedProduct);
         }
     }
 
-    public function addGun(storedGun $storedGun): void
+    public function addProduct(StoredProduct $storedProduct): void
     {
-        $this->storedGuns[] = $storedGun;
+        $this->storedProducts[] = $storedProduct;
     }
 
-    public function getStoredGuns(): array
+    public function getStoredProducts(): array
     {
-        return $this->storedGuns;
+        return $this->storedProducts;
     }
 
     public function makePayment(PaymentMethod $paymentMethod): bool
@@ -33,24 +33,24 @@ class Store
 
     }
 
-    public function giveGun(storedGun $storedGun): Gun
+    public function giveProduct(StoredProduct $storedProduct): Gun
     {
-        $storedGun->setQuantity(1);
-        return $storedGun->getGun();
+        $storedProduct->setQuantity(1);
+        return $storedProduct->getProduct();
     }
 
-    public function checkIfGunIsStored(string $searchGunName): ?StoredGun
+    public function checkIfProductIsStored(string $searchGunName): ?StoredProduct
     {
-        foreach ($this->storedGuns as $storedGun) {
-            $gun = $storedGun->getGun();
-            if (strtolower($gun->getName()) === strtolower($searchGunName)) return $storedGun;
+        foreach ($this->storedProducts as $storedProduct) {
+            $product = $storedProduct->getProduct();
+            if (strtolower($product->getName()) === strtolower($searchGunName)) return $storedProduct;
 
         }
         return null;
     }
-    public function checkQuantity(int $amount,storedGun $storedGun):bool
+    public function checkQuantity(int $amount,StoredProduct $storedProduct):bool
     {
-        return $amount <= $storedGun->getQuantity();
+        return $amount <= $storedProduct->getQuantity();
     }
 }
 

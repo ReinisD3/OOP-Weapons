@@ -1,21 +1,21 @@
 <?php
 
-class StoredGun
+class StoredProduct
 {
-    private Gun $gun;
+    private Product $product;
     private float $price;
     private int $quantity;
 
-    public function __construct(Gun $gun, float $price, int $quantity)
+    public function __construct(Product $product, float $price, int $quantity)
     {
-        $this->gun = $gun;
+        $this->product = $product;
         $this->price = $price;
         $this->quantity = $quantity;
     }
 
-    public function getGun(): Gun
+    public function getProduct(): Product
     {
-        return $this->gun;
+        return $this->product;
     }
 
     public function getPrice(): float
